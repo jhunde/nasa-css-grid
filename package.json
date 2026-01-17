@@ -1,5 +1,24 @@
 {
   "dependencies": {
-    "dotenv": "^17.2.3"
-  }
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  },
+  "name": "nasaapi-css-grid",
+  "description": "```js\r node -v\r npm -v\r ```",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhunde/nasa-css-grid.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhunde/nasa-css-grid/issues"
+  },
+  "homepage": "https://github.com/jhunde/nasa-css-grid#readme"
 }
