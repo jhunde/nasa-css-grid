@@ -14,7 +14,7 @@ if (!NASA_API_KEY){
 }
 
 // Serve you frontend files
-app.use(express("public"));
+app.use(express.static("public"));
 
 // Proxy endpoint: browswer -> your server -> NASA
 app.get("/api/apod", async (req, res) => {
@@ -30,12 +30,12 @@ app.get("/api/apod", async (req, res) => {
         const nasaRes = await fetch(url);
         const text = await nasaRes.text();  // read as text first, then forward
 
-        res.status(nasaRes.status)
+        res.status(nasaRes.status);
         res.type(nasaRes.headers.get("content-type") || "application/json");
-        res.send(text)
+        res.send(text);
     
     } catch (err) {
-        console.error(err)
+        console.error(err);
         res.status(500).json({error: "Server error fetching APOD"});
     } 
 });

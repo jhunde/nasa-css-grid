@@ -1,25 +1,27 @@
-## Installation
+## ⚙️ Getting Started
 
-### Verify `node.js` and `npm` installation
+### Installation
+
+#### Verify `node.js` and `npm` installation
 ```js
 node -v
 npm -v
 ```
 
-### dotenv
+#### dotenv
 ```js
 npm install dotenv
 ```
 
-### Initialize Node & Install Dependencies 
+#### Initialize Node & Install Dependencies 
 ```sh
 npm init -y                 
 npm i express dotenv
 ```
-> 1. `npm init -y`: Initialize project
+> 1. `npm init -y`: Initialize node
 > 2. `npm i express dotenv`: Initialize the `dotenv` package
 
-### Enable ES Modules
+#### Enable ES Modules
 ```json
 {
   "type": "module",
@@ -30,7 +32,7 @@ npm i express dotenv
 }
 ```
 
-#### Optional 
+##### Optional 
 ```json
 {
     "scripts": {
@@ -38,3 +40,13 @@ npm i express dotenv
     }
 }
 ```
+
+### ▶️ Run Project 
+Open:
+* http://localhost:3000
+
+To test just the API endpoint directly:
+* http://localhost:3000/api/apod
+
+Optional (test date):
+* http://localhost/3000/api/apod?date=2024-01-01
