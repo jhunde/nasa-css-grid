@@ -25,7 +25,7 @@ npm i express dotenv
 ```json
 {
   "type": "module",
-  "name": "nasa-apod-proxy",
+  "name": "nasaapi-css-grid",
   "version": "1.0.0",
   "main": "server.js",
   ...
@@ -42,6 +42,9 @@ npm i express dotenv
 ```
 
 ### ▶️ Run Project 
+```sh
+npm start
+```
 Open:
 * http://localhost:3000
 

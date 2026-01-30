@@ -1,7 +1,7 @@
-require('dotenv').config()
+// require('dotenv').config()
 
-const API_KEY = process.env.API_KEY;
-const APOD_ULR = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
+// const API_KEY = process.env.API_KEY;
+// const APOD_ULR = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
 
 /*
 async function fetchApod() {
@@ -28,11 +28,23 @@ async function fetchApod (){
         const data = await res.json();
         console.log(data);
 
-        
+        const output = document.getElementById("output");
+        output.innerHTML = `
+            <h2>${data.title}</h2>
+            <p>${data.date}</p>
+            <p>${data.explanation}</p>
+        ${ 
+            data.media_type === "image"
+          ? `<img src="${data.url}" alt="${data.title}" style="max-width:600px;">`
+          : `<a href="${data.url}" target="_blank" rel="noreferrer">Open media</a>`
+    
+            
+        }`;
     }
     catch(error){
         console.error(error)
         document.getElementById("output").textContent = "Failed to load APOD.";
     }
 }
-fetchApod();
+document.addEventListener("DOMContentLoaded", fetchApod);
+// fetchApod();
