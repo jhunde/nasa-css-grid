@@ -5,8 +5,8 @@ dotenv.config();
 
 // const express = require('express');
 const app = express();
-// const PORT = process.env.PORT || 3000;
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+// const PORT = 3000;
 
 const NASA_API_KEY = process.env.API_KEY;
 // Does API key exist in the .env file
@@ -25,7 +25,6 @@ app.get("/api/apod", async (req, res) => {
         const url = new URL("https://api.nasa.gov/planetary/apod");
         url.searchParams.set("api_key", NASA_API_KEY)
 
-
         // Optional: allow date passthrough like /api/apod?date=2026-01-01
         if (req.query.date) url.searchParams.set("date", req.query.date);
 
@@ -40,6 +39,23 @@ app.get("/api/apod", async (req, res) => {
         console.error(err);
         res.status(500).json({error: "Server error fetching APOD"});
     } 
+});
+
+app.get("/api/epic", async(request, response) => {
+    try{
+        const url = new URL("https://api.nasa.gov/EPIC/api/natural/images");
+        url.searchParams.set("api_key", NASA_API_KEY);
+
+        const nasaResponse = await fetch(url);
+        const text = await nasaResponse.text();
+
+        response.status(nasaResponse.status);
+        response.type(nasaResponse.headers.get("content-type") || "application/json");
+        response.send(text);
+    } catch(error){
+        console.error(error);
+        response.staus(500).json({error: "Server error fetching EPIC"})
+    }
 });
 
 app.listen(PORT, () => {

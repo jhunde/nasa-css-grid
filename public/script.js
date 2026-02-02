@@ -46,5 +46,20 @@ async function fetchApod (){
         document.getElementById("output").textContent = "Failed to load APOD.";
     }
 }
-document.addEventListener("DOMContentLoaded", fetchApod);
-// fetchApod();
+
+async function fetchEpic(){
+    try{
+        const response = await fetch("/api/epic");
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+        const data = await response.json();
+        console.log("EPIC: ", data);
+    } 
+    catch(error){
+        console.error("fetchEpic error: ",error);
+    }
+}
+document.addEventListener("DOMContentLoaded", () => {
+    fetchApod();
+    fetchEpic();
+});
