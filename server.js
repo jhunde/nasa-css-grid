@@ -26,7 +26,16 @@ app.get("/api/apod", async (req, res) => {
         url.searchParams.set("api_key", NASA_API_KEY)
 
         // Optional: allow date passthrough like /api/apod?date=2026-01-01
-        if (req.query.date) url.searchParams.set("date", req.query.date);
+        // if (req.query.date) url.searchParams.set("date", req.query.date);
+        if (req.query.count) url.searchParams.set("count", req.query.count);
+            // range
+
+        if (req.query.start_date) {
+        url.searchParams.set("start_date", req.query.start_date);
+        }
+        if (req.query.end_date) {
+        url.searchParams.set("end_date", req.query.end_date);
+        }
 
         const nasaRes = await fetch(url);
         const text = await nasaRes.text();  // read as text first, then forward
@@ -41,23 +50,9 @@ app.get("/api/apod", async (req, res) => {
     } 
 });
 
-app.get("/api/epic", async(request, response) => {
-    try{
-        const url = new URL("https://api.nasa.gov/EPIC/api/natural/images");
-        url.searchParams.set("api_key", NASA_API_KEY);
-
-        const nasaResponse = await fetch(url);
-        const text = await nasaResponse.text();
-
-        response.status(nasaResponse.status);
-        response.type(nasaResponse.headers.get("content-type") || "application/json");
-        response.send(text);
-    } catch(error){
-        console.error(error);
-        response.staus(500).json({error: "Server error fetching EPIC"})
-    }
+app.get("/api/ping", (req, res) => {
+    res.json({ok: true});
 });
-
 app.listen(PORT, () => {
     console.log("Server running at https:/localhost:${POST}");
 });
