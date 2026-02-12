@@ -21,15 +21,14 @@ async function fetchApod() {
 */
 
 async function fetchApod (){
-    const output = document.getElementById("output");
-    output.textContent = "Loading...";
+    // const output = document.getElementById("output");
+    // output.textContent = "Loading...";
 
-    // const item = document.getElementById("item");
-    // const item_content_1 = document.getElementById("item_content_1");
-    // const item_content_2 = document.getElementById("item_content_2");
-    // const item_content_3 = document.getElementById("item_content_3");
-    // const item_content_4 = document.getElementById("item_content_4");
-    // const item_content_5 = document.getElementById("item_content_5");
+    const item_content_1 = document.getElementById("item_content_1");
+    const item_content_2 = document.getElementById("item_content_2");
+    const item_content_3 = document.getElementById("item_content_3");
+    const item_content_4 = document.getElementById("item_content_4");
+    const item_content_5 = document.getElementById("item_content_5");
 
     try{
         const res = await fetch("/api/apod?count=5");
@@ -40,7 +39,7 @@ async function fetchApod (){
         const apods = Array.isArray(data) ? data: [data];
         console.log('apods[0]: ',apods[0]);
         
-        // Comment out for now 
+        /* Comment out for now 
         output.innerHTML = apods.map(apod => `
             <article style="margin-bottom: 2rem;">
                 <h2>${apod.title}</h2>
@@ -51,19 +50,60 @@ async function fetchApod (){
                         : `<a href="${apod.url}" target="_blank" rel="noreferrer">Open media</a>`     
                 }
             </article>
-        `).join("");
+        `).join(""); 
+        */
 
         
-        // item_content_1.innerHTML = apods[0];
-        // item_content_2.innerHTML = apods[1];
-        // item_content_3.innerHTML = apods[2];
-        // item_content_4.innerHTML = apods[3];
-        // item_content_5.innerHTML = apods[4];
+        item_content_1.innerHTML = (
+            `<h2> ${apods[0].title};</h2>
+            ${ 
+                apods[0].media_type === "image"
+                    ? `<img src="${apods[0].url}" alt="${apods[0].title}" style="max-width:600px;">`
+                    : `<a href="${apods[0].url}" target="_blank" rel="noreferrer">Open media</a>`     
+            }`
+        )
+        item_content_2.innerHTML = (
+            `<h2> ${apods[1].title};</h2>
+            ${ 
+                apods[1].media_type === "image"
+                    ? `<img src="${apods[1].url}" alt="${apods[1].title}" style="max-width:600px;">`
+                    : `<a href="${apods[1].url}" target="_blank" rel="noreferrer">Open media</a>`     
+            }`
+        )
+        item_content_3.innerHTML = (
+            `<h2> ${apods[2].title};</h2>
+            ${ 
+                apods[2].media_type === "image"
+                    ? `<img src="${apods[2].url}" alt="${apods[2].title}" style="max-width:600px;">`
+                    : `<a href="${apods[2].url}" target="_blank" rel="noreferrer">Open media</a>`     
+            }`
+        )
+        item_content_4.innerHTML = (
+            `<h2> ${apods[3].title};</h2>
+            ${ 
+                apods[3].media_type === "image"
+                    ? `<img src="${apods[3].url}" alt="${apods[3].title}" style="max-width:600px;">`
+                    : `<a href="${apods[3].url}" target="_blank" rel="noreferrer">Open media</a>`     
+            }`
+        )
+        item_content_5.innerHTML = (
+            `<h2> ${apods[4].title};</h2>
+            ${ 
+                apods[4].media_type === "image"
+                    ? `<img src="${apods[4].url}" alt="${apods[4].title}" style="max-width:600px;">`
+                    : `<a href="${apods[4].url}" target="_blank" rel="noreferrer">Open media</a>`     
+            }`
+        )
 
     }
     catch(error){
         console.error(error)
-        document.getElementById("output").textContent = "Failed to load APOD.";
+        // document.getElementById("output").textContent = "Failed to load APOD.";
+        document.getElementById("item_content_1").textContent = "Failed to load APOD.";
+        document.getElementById("item_content_2").textContent = "Failed to load APOD.";
+        document.getElementById("item_content_3").textContent = "Failed to load APOD.";
+        document.getElementById("item_content_4").textContent = "Failed to load APOD.";
+        document.getElementById("item_content_5").textContent = "Failed to load APOD.";
     }
 }
 
