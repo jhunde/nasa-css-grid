@@ -31,7 +31,7 @@ async function fetchApod (){
     const item_content_5 = document.getElementById("item_content_5");
 
     try{
-        const res = await fetch("/api/apod?count=5");
+        const res = await fetch("/api/apod?count=10");
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
 
         const data = await res.json();
@@ -95,6 +95,46 @@ async function fetchApod (){
             }`
         )
 
+        item_content_6.innerHTML = (
+            `<h2> ${apods[5].title};</h2>
+            ${ 
+                apods[5].media_type === "image"
+                    ? `<img src="${apods[5].url}" alt="${apods[5].title}" style="max-width:600px;">`
+                    : `<a href="${apods[5].url}" target="_blank" rel="noreferrer">Open media</a>`     
+            }`
+        )
+        item_content_7.innerHTML = (
+            `<h2> ${apods[6].title};</h2>
+            ${ 
+                apods[6].media_type === "image"
+                    ? `<img src="${apods[6].url}" alt="${apods[6].title}" style="max-width:600px;">`
+                    : `<a href="${apods[6].url}" target="_blank" rel="noreferrer">Open media</a>`     
+            }`
+        )
+        item_content_8.innerHTML = (
+            `<h2> ${apods[7].title};</h2>
+            ${ 
+                apods[7].media_type === "image"
+                    ? `<img src="${apods[7].url}" alt="${apods[7].title}" style="max-width:600px;">`
+                    : `<a href="${apods[7].url}" target="_blank" rel="noreferrer">Open media</a>`     
+            }`
+        )
+        item_content_9.innerHTML = (
+            `<h2> ${apods[8].title};</h2>
+            ${ 
+                apods[8].media_type === "image"
+                    ? `<img src="${apods[8].url}" alt="${apods[8].title}" style="max-width:600px;">`
+                    : `<a href="${apods[8].url}" target="_blank" rel="noreferrer">Open media</a>`     
+            }`
+        )
+        item_content_10.innerHTML = (
+            `<h2> ${apods[9].title};</h2>
+            ${ 
+                apods[9].media_type === "image"
+                    ? `<img src="${apods[9].url}" alt="${apods[9].title}" style="max-width:600px;">`
+                    : `<a href="${apods[9].url}" target="_blank" rel="noreferrer">Open media</a>`     
+            }`
+        )
     }
     catch(error){
         console.error(error)
