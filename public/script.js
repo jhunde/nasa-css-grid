@@ -29,6 +29,12 @@ async function fetchApod (){
     const item_content_3 = document.getElementById("item_content_3");
     const item_content_4 = document.getElementById("item_content_4");
     const item_content_5 = document.getElementById("item_content_5");
+    const item_content_6 = document.getElementById("item_content_6");
+    const item_content_7 = document.getElementById("item_content_7");
+    const item_content_8 = document.getElementById("item_content_8");
+    const item_content_9 = document.getElementById("item_content_9");
+    const item_content_10 = document.getElementById("item_content_10");
+    
 
     try{
         const res = await fetch("/api/apod?count=10");

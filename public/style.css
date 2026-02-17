@@ -6,11 +6,24 @@
     gap: 1rem;
 }
 .items{
-    height: 100px;
+    /* height: 100px; */
+    position: relative;
     padding: 2em;
     background-color: black;
     color: white;
     text-align: center;
     border-radius: 8px;
     font-size: 2rem;
+
+    overflow: hidden;
+}
+
+.items img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.items h2{
+    font-size: 1rem;
 }
