@@ -1,20 +1,30 @@
 .grid-container{
     display: grid;
-    grid-template-columns: 300px 300px 300px;
-    /* grid-template-rows: 200px 200px 200px; */
-    grid-auto-rows: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    justify-items: center;
+    align-items: center;
+
+    justify-content: center;
+    align-content: center;
+
+    gap: 1em;
 }
+
 .items{
-    /* height: 100px; */
     position: relative;
-    padding: 2em;
+    padding: 2rem;
+
     background-color: black;
     color: white;
     text-align: center;
+
     border-radius: 8px;
     font-size: 2rem;
 
+    justify-items: center;
+    align-items: center;
+    
     overflow: hidden;
 }
 
@@ -24,6 +34,6 @@
     object-fit: cover;
 }
 
-.items h2{
+.items h2, p{
     font-size: 1rem;
 }
