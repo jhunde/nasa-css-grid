@@ -6,13 +6,13 @@
   "name": "nasaapi-css-grid",
   "description": "```js\r node -v\r npm -v\r ```",
   "version": "1.0.0",
-  "main": "server.js", 
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
-    "type": "git", 
+    "type": "git",
     "url": "git+https://github.com/jhunde/nasa-css-grid.git"
   },
   "keywords": [],
@@ -22,5 +22,8 @@
     "url": "https://github.com/jhunde/nasa-css-grid/issues"
   },
   "homepage": "https://github.com/jhunde/nasa-css-grid#readme",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
 }

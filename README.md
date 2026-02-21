@@ -12,6 +12,10 @@ npm -v
 ```js
 npm install dotenv
 ```
+### nodemon
+```js
+npm install nodemon --save-dev
+```
 
 #### Initialize Node & Install Dependencies 
 ```sh
